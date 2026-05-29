@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RL Shop</title>
+</head>
+<body>
+    <header style="background: #333; padding: 10px; color: white;">
+        <nav style="display: flex; gap: 15px; align-items: center;">
+            <a href="/boutique-rl/public/" style="color: white; text-decoration: none;">Accueil</a>
+            <a href="/boutique-rl/public/item/index" style="color: white; text-decoration: none;">Tous les Items</a>
+            
+            <div style="flex-grow: 1;"></div> <!-- Espace blanc -->
+            
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <span>Bonjour, <?= htmlspecialchars($_SESSION['username']) ?> !</span>
+                <a href="/boutique-rl/public/user/logout" style="color: #ffcccc; text-decoration: none;">Se déconnecter</a>
+            <?php else: ?>
+                <a href="/boutique-rl/public/user/login" style="color: white; text-decoration: none;">Se connecter</a>
+                <a href="/boutique-rl/public/user/register" style="color: white; text-decoration: none;">S'inscrire</a>
+            <?php endif; ?>
+        </nav>
+    </header>
+    <main style="padding: 20px;">

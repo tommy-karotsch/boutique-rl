@@ -10,7 +10,7 @@ class ItemModel extends Model
     {
         $stmt = $this->db->prepare("
         INSERT INTO items(name, description, price, stock, image, category_id, rarity_id, color_id)
-        VALUES (:name, :description, :price, :stock, :image, :category_id, :rarity_id, :color_id
+        VALUES (:name, :description, :price, :stock, :image, :category_id, :rarity_id, :color_id)
         ");
         return $stmt->execute($data);
     }
@@ -66,5 +66,44 @@ class ItemModel extends Model
         $stmt->execute([':id' => $id]);
         $result = $stmt->fetch();
         return $result === false ? null : $result;
+    }
+
+    public function findByCategory(int $categoryId): array
+    {
+        $stmt = $this->db->prepare("
+        SELECT items.*, categories.name AS category_name, rarities.name AS rarity_name, colors.name AS color_name 
+        FROM {$this->table} 
+        JOIN categories ON categories.id = items.category_id
+        JOIN rarities ON rarities.id = items.rarity_id
+        JOIN colors ON colors.id = items.color_id
+        WHERE category_id = :category_id");
+        $stmt->execute([':category_id' => $categoryId]);
+        return $stmt->fetchAll();
+    }
+
+    public function findByRarity(int $rarityId): array
+    {
+        $stmt = $this->db->prepare("
+        SELECT items.*, categories.name AS category_name, rarities.name AS rarity_name, colors.name AS color_name 
+        FROM {$this->table} 
+        JOIN categories ON categories.id = items.category_id
+        JOIN rarities ON rarities.id = items.rarity_id
+        JOIN colors ON colors.id = items.color_id
+        WHERE rarity_id = :rarity_id");
+        $stmt->execute([':rarity_id' => $rarityId]);
+        return $stmt->fetchAll();
+    }
+
+    public function findByColor(int $colorId): array
+    {
+        $stmt = $this->db->prepare("
+        SELECT items.*, categories.name AS category_name, rarities.name AS rarity_name, colors.name AS color_name 
+        FROM {$this->table} 
+        JOIN categories ON categories.id = items.category_id
+        JOIN rarities ON rarities.id = items.rarity_id
+        JOIN colors ON colors.id = items.color_id
+        WHERE color_id = :color_id");
+        $stmt->execute([':color_id' => $colorId]);
+        return $stmt->fetchAll();
     }
 }
