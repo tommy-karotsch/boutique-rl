@@ -11,7 +11,7 @@
         <p class="form__error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
-    <form method="POST" action="/boutique-en-ligne/public/user/editProfile">
+    <form method="POST" action="/user/editProfile">
 
         <div class="form__group">
             <label class="form__label" for="username">Nom d'utilisateur :</label>
@@ -44,7 +44,7 @@
     <hr style="margin: 20px 0;">
 
     <h2>Supprimer mon compte</h2>
-    <form method="POST" action="/boutique-en-ligne/public/user/delete" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible. Et supprimera toutes vos données.');">
+    <form method="POST" action="/user/delete" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible. Et supprimera toutes vos données.');">
         <button type="submit" class="btn btn--danger">Supprimer mon compte</button>
     </form>
 </div>

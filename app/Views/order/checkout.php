@@ -39,7 +39,7 @@ require_once __DIR__ . '/../layout/header.php';
             </ul>
         </div>
     <?php endif; ?>
-    <form method="POST" action="/boutique-en-ligne/public/order/checkout">
+    <form method="POST" action="/order/checkout">
         
         <div class="form__group">
             <label class="form__label" for="game_id"><strong>Identifiant Rocket League (Epic Games) :</strong></label>
@@ -48,7 +48,7 @@ require_once __DIR__ . '/../layout/header.php';
         </div>
 
         <div class="checkout__actions">
-            <a href="/boutique-en-ligne/public/cart/index" class="btn">Retour au panier</a>
+            <a href="/cart/index" class="btn">Retour au panier</a>
             <button type="submit" class="btn btn--primary">Confirmer et Payer</button>
         </div>
     </form>

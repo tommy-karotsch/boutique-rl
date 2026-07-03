@@ -21,7 +21,7 @@
         <button type="submit" class="btn">Se connecter</button>
     </form>
     
-    <p class="form__group" style="margin-top: 15px;">Pas encore de compte ? <a href="/boutique-en-ligne/public/user/register">S'inscrire</a></p>
+    <p class="form__group" style="margin-top: 15px;">Pas encore de compte ? <a href="/user/register">S'inscrire</a></p>
 </div>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

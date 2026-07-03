@@ -12,7 +12,7 @@ class AdminController{
     
     private function checkAdmin(){
         if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin'){
-            header('Location: /boutique-en-ligne/public/');
+            header('Location: /');
             exit;
         }
     }
@@ -53,7 +53,7 @@ class AdminController{
             $itemModel = new ItemModel();
 
             if($itemModel->create($data)){
-                header('Location: /boutique-en-ligne/public/admin/index');
+                header('Location: /admin/index');
                 exit;
             }
             $error = "Une erreur est survenue lors de l'ajout.";
@@ -80,7 +80,7 @@ class AdminController{
         $item = $itemModel->findByIdWithRelations($id);
 
         if(!$item){
-            header('Location: /boutique-en-ligne/public/admin/index');
+            header('Location: /admin/index');
             exit;
         }
 
@@ -98,7 +98,7 @@ class AdminController{
             ];
 
             if($itemModel->update($id, $data)){
-                header('Location: /boutique-en-ligne/public/admin/index');
+                header('Location: /admin/index');
                 exit;
             }
 
@@ -130,7 +130,7 @@ class AdminController{
                 $_SESSION['admin_error'] = "Impossible de supprimer cet item : il fait partie d'une commande existante.";
             }
         }
-        header('Location: /boutique-en-ligne/public/admin/index');
+        header('Location: /admin/index');
         exit;
     }
 
@@ -162,7 +162,7 @@ class AdminController{
 
 
 
-        header('Location: /boutique-en-ligne/public/admin/orders');
+        header('Location: /admin/orders');
         exit;
     }
 
@@ -209,7 +209,7 @@ class AdminController{
             }
         }
 
-        header('Location: /boutique-en-ligne/public/admin/catalog');
+        header('Location: /admin/catalog');
         exit;
     }
 
@@ -239,7 +239,7 @@ class AdminController{
                 }
             }
         }
-        header('Location: /boutique-en-ligne/public/admin/catalog');
+        header('Location: /admin/catalog');
         exit;
     }
 
@@ -272,7 +272,7 @@ class AdminController{
                 }
             }
         }
-        header('Location: /boutique-en-ligne/public/admin/catalog');
+        header('Location: /admin/catalog');
         exit;
     }
 }

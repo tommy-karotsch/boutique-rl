@@ -6,7 +6,7 @@
     <?php if (empty($cartList)): ?>
         <div class="cart-empty">
             <p class="cart-empty__text">Votre panier est vide pour le moment.</p>
-            <a href="/boutique-en-ligne/public/item/index" class="btn btn--primary">Découvrir le catalogue</a>
+            <a href="/item/index" class="btn btn--primary">Découvrir le catalogue</a>
         </div>
     <?php else: ?>
         <div class="cart">
@@ -28,7 +28,7 @@
                                     <?php if (!empty($item['image'])): ?>
                                         <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="cart__thumb">
                                     <?php endif; ?>
-                                    <a href="/boutique-en-ligne/public/item/show?id=<?= $item['id'] ?>" class="cart__name">
+                                    <a href="/item/show?id=<?= $item['id'] ?>" class="cart__name">
                                         <?= htmlspecialchars($item['name']) ?>
                                     </a>
                                 </div>
@@ -37,7 +37,7 @@
                             <td><?= htmlspecialchars($item['price']) ?> Crédits</td>
 
                             <td>
-                                <form method="POST" action="/boutique-en-ligne/public/cart/updateQuantity" class="cart__qty-form">
+                                <form method="POST" action="/cart/updateQuantity" class="cart__qty-form">
                                     <input type="hidden" name="id" value="<?= $item['id'] ?>">
                                     <input type="number" name="quantity" value="<?= htmlspecialchars($item['quantity']) ?>" min="0" class="cart__qty-input">
                                     <button type="submit" class="btn btn--small">OK</button>
@@ -47,7 +47,7 @@
                             <td><?= htmlspecialchars($item['price'] * $item['quantity']) ?> Crédits</td>
 
                             <td>
-                                <a href="/boutique-en-ligne/public/cart/remove?id=<?= $item['id'] ?>" class="btn btn--danger btn--small">Retirer</a>
+                                <a href="/cart/remove?id=<?= $item['id'] ?>" class="btn btn--danger btn--small">Retirer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -57,9 +57,9 @@
             <div class="cart__summary">
                 <h2 class="cart__total">Total : <?= htmlspecialchars($totalPrice) ?> Crédits</h2>
                 <?php if (isset($_SESSION['user_id'])): ?>
-                    <a href="/boutique-en-ligne/public/order/checkout" class="btn btn--primary">Passer la commande</a>
+                    <a href="/order/checkout" class="btn btn--primary">Passer la commande</a>
                 <?php else: ?>
-                    <p class="cart__notice">Veuillez <a href="/boutique-en-ligne/public/user/login">vous connecter</a> pour passer commande.</p>
+                    <p class="cart__notice">Veuillez <a href="/user/login">vous connecter</a> pour passer commande.</p>
                 <?php endif; ?>
             </div>
         </div>

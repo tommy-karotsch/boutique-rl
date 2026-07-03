@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/boutique-en-ligne/public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>RL Shop</title>
 </head>
 <body>
@@ -11,8 +11,8 @@
         <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
         
         <nav class="nav" id="nav">
-            <a href="/boutique-en-ligne/public/" class="nav-link">Accueil</a>
-            <a href="/boutique-en-ligne/public/item/index" class="nav-link">Catalogue</a>
+            <a href="/" class="nav-link">Accueil</a>
+            <a href="/item/index" class="nav-link">Catalogue</a>
 
             <?php if (isset($_SESSION['user_id'])): ?>
                 
@@ -22,23 +22,23 @@
 
             <?php if ($_SESSION['user_role'] === 'admin'): ?>
 
-                    <a href="/boutique-en-ligne/public/admin/index" class="nav-link">Admin</a> 
+                    <a href="/admin/index" class="nav-link">Admin</a> 
 
             <?php endif; ?>
             
-                    <a href="/boutique-en-ligne/public/user/profile" class="nav-link">Mon profil</a>
-                    <a href="/boutique-en-ligne/public/user/logout" class="nav-link">Se déconnecter</a>
+                    <a href="/user/profile" class="nav-link">Mon profil</a>
+                    <a href="/user/logout" class="nav-link">Se déconnecter</a>
 
             <?php else: ?>
 
             <div class="nav-spacer"></div>
 
-                    <a href="/boutique-en-ligne/public/user/login" class="nav-link">Se connecter</a>
-                    <a href="/boutique-en-ligne/public/user/register" class="nav-link">S'inscrire</a>
+                    <a href="/user/login" class="nav-link">Se connecter</a>
+                    <a href="/user/register" class="nav-link">S'inscrire</a>
 
             <?php endif; ?>
 
-            <a href="/boutique-en-ligne/public/cart/index" class="nav-link">
+            <a href="/cart/index" class="nav-link">
                 Panier (<?= isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0 ?>)
             </a>
 

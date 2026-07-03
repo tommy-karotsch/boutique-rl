@@ -19,10 +19,10 @@
     <h2 class="product__price"><?= htmlspecialchars($item['price']) ?> Crédits</h2>
 
     <div class="product__actions">
-        <a href="/boutique-en-ligne/public/item/index" class="btn">Retour à la boutique</a>
+        <a href="/item/index" class="btn">Retour à la boutique</a>
 
         <?php if ($item['stock'] > 0): ?>
-            <a href="/boutique-en-ligne/public/cart/add?id=<?= $item['id'] ?>" class="btn btn--primary">Ajouter au panier</a>
+            <a href="/cart/add?id=<?= $item['id'] ?>" class="btn btn--primary">Ajouter au panier</a>
         <?php else: ?>
             <span class="product__stock-out">Rupture de stock</span>
         <?php endif; ?>

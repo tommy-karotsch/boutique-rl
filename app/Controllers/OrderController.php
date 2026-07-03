@@ -21,7 +21,7 @@ class OrderController
     private function checkLogin()
     {
         if (!isset($_SESSION['user_id'])){
-            header('Location: /boutique-en-ligne/public/user/login');
+            header('Location: /user/login');
             exit;
         }
     }
@@ -31,7 +31,7 @@ class OrderController
         $this->checkLogin();
 
         if(empty($_SESSION['cart'])){
-            header('Location: /boutique-en-ligne/public/item/index');
+            header('Location: /item/index');
             exit;
         }
 
@@ -91,7 +91,7 @@ class OrderController
                         unset($_SESSION['cart']);
                         unset($_SESSION['cart_total']);
 
-                        header('Location: /boutique-en-ligne/public/order/confirm?id=' . $orderId);
+                        header('Location: /order/confirm?id=' . $orderId);
                         exit;
                     } else {
                         $errors[] = "Une erreur est survenue lors de la création de la commande. Veuillez réessayer.";
@@ -111,7 +111,7 @@ class OrderController
 
         $orderId = $_GET['id'] ?? null;
         if(!$orderId){
-            header('Location: /boutique-en-ligne/public/item/index');
+            header('Location: /item/index');
             exit;
         }
 
@@ -119,7 +119,7 @@ class OrderController
         $order = $orderModel->findById((int)$orderId);
 
         if(!$order || (int)$order['user_id'] !== (int)$_SESSION['user_id']){
-            header('Location: /boutique-en-ligne/public/item/index');
+            header('Location: /item/index');
             exit;
         }
 

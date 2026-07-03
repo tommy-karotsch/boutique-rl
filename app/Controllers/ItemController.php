@@ -32,7 +32,7 @@ class ItemController
     public function show()
     {
         if (!isset($_GET['id'])) {
-            header('Location: /boutique-en-ligne/public/');
+            header('Location: /');
             exit;
         }
 

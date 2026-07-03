@@ -11,7 +11,7 @@ class UserController
     private function checkLogin()
     {
         if(!isset($_SESSION['user_id'])){
-            header('Location: /boutique-en-ligne/public/user/login');
+            header('Location: /user/login');
             exit;
         }
     }
@@ -44,7 +44,7 @@ class UserController
 
             } else {
                 if($userModel->create($data)){
-                    header('Location: /boutique-en-ligne/public/user/login');
+                    header('Location: /user/login');
                     exit;
                 } else {
                     $error = "Erreur lors de l'inscription.";
@@ -83,7 +83,7 @@ class UserController
                 $cartModel->save($cartId, $merged);
                 $_SESSION['cart'] = $merged;
                 
-                header('Location: /boutique-en-ligne/public/');
+                header('Location: /');
                 exit;
             } else {
                 $error = "Identifiants incorrects.";
@@ -96,7 +96,7 @@ class UserController
     public function logout()
     {
         session_destroy();
-        header('Location: /boutique-en-ligne/public/');
+        header('Location: /');
         exit;
     }
 
@@ -167,12 +167,12 @@ class UserController
 
             if($user){
                 session_destroy();
-                header('Location: /boutique-en-ligne/public/');
+                header('Location: /');
                 exit;
             }
         }
 
-        header('Location: /boutique-en-ligne/public/user/profile');
+        header('Location: /user/profile');
         exit;
     }
 }

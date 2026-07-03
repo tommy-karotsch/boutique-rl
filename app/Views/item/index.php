@@ -8,7 +8,7 @@ require_once __DIR__ . '/../layout/header.php';
 <div class="catalog">
 
     <aside class="catalog__filters">
-    <form method="GET" action="/boutique-en-ligne/public/item/index" class="filters" id="filters">
+    <form method="GET" action="/item/index" class="filters" id="filters">
 
     <select name="category_id">
         <option value="">Toutes les catégories</option>
@@ -49,7 +49,7 @@ require_once __DIR__ . '/../layout/header.php';
         <option value="rarity" <?= ($_GET['sort'] ?? '') === 'rarity' ? 'selected' : '' ?>>Rareté</option>
     </select>
    
-    <a href="/boutique-en-ligne/public/item/index">Réinitialiser</a>
+    <a href="/item/index">Réinitialiser</a>
     </form>
     </aside>
 
@@ -62,20 +62,20 @@ require_once __DIR__ . '/../layout/header.php';
                     <?= htmlspecialchars($item['rarity'] ?? '') ?>
                 </span>
                 <?php if (!empty($item['image'])): ?>
-                    <a href="/boutique-en-ligne/public/item/show?id=<?= $item['id'] ?>">
+                    <a href="/item/show?id=<?= $item['id'] ?>">
                         <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="item-card__img">
                     </a>
                 <?php endif; ?>
             </div>
 
             <h2 class="item-card__name">
-                <a href="/boutique-en-ligne/public/item/show?id=<?= $item['id'] ?>"><?= htmlspecialchars($item['name']) ?></a>
+                <a href="/item/show?id=<?= $item['id'] ?>"><?= htmlspecialchars($item['name']) ?></a>
             </h2>
             <p class="item-card__info"><?= htmlspecialchars($item['category'] ?? '') ?> · <?= htmlspecialchars($item['color'] ?? '') ?></p>
 
             <div class="item-card__bottom">
                 <span class="item-card__price"><?= htmlspecialchars($item['price']) ?> Crédits</span>
-                <a href="/boutique-en-ligne/public/cart/add?id=<?= $item['id'] ?>" class="item-card__add">+ Panier</a>
+                <a href="/cart/add?id=<?= $item['id'] ?>" class="item-card__add">+ Panier</a>
             </div>
         </div>
     <?php endforeach; ?>
@@ -83,6 +83,6 @@ require_once __DIR__ . '/../layout/header.php';
     </div>
 </div>
 
-<script src="/boutique-en-ligne/public/js/filters.js"></script>
+<script src="/js/filters.js"></script>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

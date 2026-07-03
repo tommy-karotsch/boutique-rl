@@ -10,8 +10,8 @@
     </div>
 
     <div class="profile-actions">
-        <a href="/boutique-en-ligne/public/user/editProfile" class="btn btn--primary">Modifier mes informations</a>
-        <a href="/boutique-en-ligne/public/order/index" class="btn">Mes commandes</a>
+        <a href="/user/editProfile" class="btn btn--primary">Modifier mes informations</a>
+        <a href="/order/index" class="btn">Mes commandes</a>
     </div>
 </div>
 

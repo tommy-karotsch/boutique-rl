@@ -3,7 +3,7 @@
 <div class="container">
 <h1>Suivi des commandes</h1>
 
-<form method="GET" action="/boutique-en-ligne/public/admin/orders" class="order-filter" id="order-filter">
+<form method="GET" action="/admin/orders" class="order-filter" id="order-filter">
     <label class="order-filter__label" for="status">Filtrer par statut :</label>
     <select name="status" id="status" class="order-filter__select">
         <option value="">Tous les statuts</option>
@@ -35,7 +35,7 @@
                 <td><?= htmlspecialchars($order['total']) ?> Crédits</td>
                 <td><span class="status-badge status-badge--<?= htmlspecialchars($order['status']) ?>"><?= htmlspecialchars($order['status']) ?></span></td>
                 <td>
-                    <form method="POST" action="/boutique-en-ligne/public/admin/updateOrderStatus" class="order-status-form">
+                    <form method="POST" action="/admin/updateOrderStatus" class="order-status-form">
                         <input type="hidden" name="id" value="<?= $order['id'] ?>">
                         <select name="status">
                             <option value="pending"   <?= ($order['status'] ?? '') === 'pending' ? 'selected' : '' ?>>En attente</option>

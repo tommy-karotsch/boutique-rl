@@ -11,8 +11,8 @@
         <li>Statut :                <strong><?= htmlspecialchars($order['status']) ?></strong></li>
     </ul>
 
-    <a href="/boutique-en-ligne/public/item/index">Retourner à la boutique</a>
-    <a href="/boutique-en-ligne/public/order/index">Voir mes commandes</a>
+    <a href="/item/index">Retourner à la boutique</a>
+    <a href="/order/index">Voir mes commandes</a>
 </div>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

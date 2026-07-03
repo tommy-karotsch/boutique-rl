@@ -5,7 +5,7 @@
 
     <?php if (empty($orders)): ?> 
         <p>Vous n'avez pas encore de commande.</p>
-        <a href="/boutique-en-ligne/public/item/index">Retourner à la boutique</a>
+        <a href="/item/index">Retourner à la boutique</a>
     <?php else: ?>
         <table class="table">
             <thead>

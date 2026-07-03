@@ -6,7 +6,7 @@
     <div class="hero__left">
         <h1 class="hero__title">Boutique<br>Rocket League</h1>
         <p class="hero__subtitle">Items Rares · Exotiques · Marché noir</p>
-        <a href="/boutique-en-ligne/public/item/index" class="btn btn--primary">Voir le catalogue</a>
+        <a href="/item/index" class="btn btn--primary">Voir le catalogue</a>
     </div>
 
     <div class="hero__right">
@@ -36,6 +36,6 @@
     <div id="catalogue"></div>
 </section>
 
-<script src="/boutique-en-ligne/public/js/catalogue.js"></script>
+<script src="/js/catalogue.js"></script>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

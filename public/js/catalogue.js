@@ -1,5 +1,5 @@
 async function loadItems(){
-    const apiUrl = '/boutique-en-ligne/public/api-item?top=1';
+    const apiUrl = '/api-item?top=1';
     const conteneur = document.getElementById('catalogue');
 
     try{
@@ -22,15 +22,15 @@ async function loadItems(){
                     <span class="item-card__badge" style="background-color: ${item.rarity_color || '#000'};">
                         ${item.rarity ?? ''}
                     </span>
-                    ${item.image ? `<a href="/boutique-en-ligne/public/item/show?id=${item.id}"><img src="${item.image}" alt="${item.name}" class="item-card__img"></a>` : ''}
+                    ${item.image ? `<a href="/item/show?id=${item.id}"><img src="${item.image}" alt="${item.name}" class="item-card__img"></a>` : ''}
                 </div>
 
-                <h2 class="item-card__name"><a href="/boutique-en-ligne/public/item/show?id=${item.id}">${item.name}</a></h2>
+                <h2 class="item-card__name"><a href="/item/show?id=${item.id}">${item.name}</a></h2>
                 <p class="item-card__info">${item.category ?? ''} · ${item.color ?? ''}</p>
 
                 <div class="item-card__bottom">
                     <span class="item-card__price">${item.price} Crédits</span>
-                    <a href="/boutique-en-ligne/public/cart/add?id=${item.id}" class="item-card__add">+ Panier</a>
+                    <a href="/cart/add?id=${item.id}" class="item-card__add">+ Panier</a>
                 </div>
             `;
 

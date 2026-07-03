@@ -6,9 +6,9 @@ require_once __DIR__ . '/../layout/header.php';
 
 <div class="admin-actions">
     <h1>Admin Dashboard</h1>
-    <a href="/boutique-en-ligne/public/admin/create">Ajouter un item</a>
-    <a href="/boutique-en-ligne/public/admin/orders">Suivi des commandes</a>
-    <a href="/boutique-en-ligne/public/admin/catalog">Gérer le catalogue</a>
+    <a href="/admin/create">Ajouter un item</a>
+    <a href="/admin/orders">Suivi des commandes</a>
+    <a href="/admin/catalog">Gérer le catalogue</a>
 </div>
 
 <?php if (isset($error)): ?>
@@ -62,8 +62,8 @@ require_once __DIR__ . '/../layout/header.php';
                 <td><?= htmlspecialchars($item['stock']) ?></td>                
                 <td>
                     <div class="admin-row-actions">
-                        <a href="/boutique-en-ligne/public/admin/edit?id=<?= $item['id'] ?>" class="btn btn--small">Modifier</a>
-                        <form method="POST" action="/boutique-en-ligne/public/admin/delete">
+                        <a href="/admin/edit?id=<?= $item['id'] ?>" class="btn btn--small">Modifier</a>
+                        <form method="POST" action="/admin/delete">
                             <input type="hidden" name="id" value="<?= $item['id'] ?>">
                             <button type="submit" class="btn btn--danger btn--small" onclick="return confirm('Supprimer cet item ?')">Supprimer</button>
                         </form>
